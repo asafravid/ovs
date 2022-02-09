@@ -39,8 +39,9 @@ if [ $OS = "Fedora" ]; then
     export PKG_CONFIG_PATH=${SDE_INSTALL}/lib64/pkgconfig
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SDE_INSTALL/lib64
 else
-    export PKG_CONFIG_PATH=${SDE_INSTALL}/lib/aarch64-linux-gnu/pkgconfig
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SDE_INSTALL/lib/aarch64-linux-gnu
+    architecture=("uname -a")
+    export PKG_CONFIG_PATH=${SDE_INSTALL}/lib/${architecture}-linux-gnu/pkgconfig
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SDE_INSTALL/lib/${architecture}-linux-gnu
 fi
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
